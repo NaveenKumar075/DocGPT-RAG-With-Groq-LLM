@@ -49,7 +49,7 @@ def chunking_data(filtered_text):
     return splitted_data
 
 
-pdf_path = "Attention Is All You Need.pdf"
+pdf_path = r"C:\Users\siva3\Downloads\AI-ML JOTHIKA.pdf" #Attention Is All You Need.pdf
 text = pdf_text_extraction(pdf_path)
 filtered_text = text_preprocessing(text)
 splitted_data = chunking_data(filtered_text)
@@ -66,10 +66,42 @@ embeddings = HuggingFaceInferenceAPIEmbeddings(api_key=hugging_face_token, model
 
 
 # words to vectorization and storing them in a chromadb (Vector Database)
-vectorstore = Chroma.from_documents(splitted_data, embeddings, persist_directory="./db")
+vectorstore = Chroma.from_documents(splitted_data, embeddings, persist_directory="./db2")
 vector_retriever = vectorstore.as_retriever(search_kwargs={"k":2})
 
 
 # integrating vector_retriever and keyword_retriever (Hybrid Search)
-keyword_retriever = BM25Retriever.from_documents(splitted_data).k=2
+keyword_retriever = BM25Retriever.from_documents(splitted_data)
+keyword_retriever.k=2
 retriever = EnsembleRetriever(retrievers=[vector_retriever,keyword_retriever], weights= [0.5,0.5])
+
+
+chat = ChatGroq(temperature=0, groq_api_key=groq_api_key, model_name="Llama3-8b-8192")
+template = """
+User: You are an AI Assistant that follows instructions extremely well.
+Please be truthful and give direct answers. Please tell 'I don't know' if user query is not in CONTEXT
+
+Keep in mind, you will lose the job, if you answer out of CONTEXT questions
+
+CONTEXT: {context}
+Query: {question}
+
+Remember only return AI answer
+Assistant:
+"""
+
+prompt = ChatPromptTemplate.from_template(template)
+output_parser = StrOutputParser()
+chain = (
+    {
+        "context": retriever.with_config(run_name="Docs"),
+        "question": RunnablePassthrough(),
+    }
+    | prompt
+    | chat
+    | output_parser
+)
+
+query = "what is the projects mentioned in this pdf"
+for chunk in chain.stream(query):
+  print(chunk, end="", flush=True)
