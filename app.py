@@ -43,10 +43,14 @@ def chunking_data(filtered_text):
     splitted_data = text_splitter.split_documents([document])
     return splitted_data
 
-# Streamlit app
+# Streamlit App
 st.set_page_config(layout = "wide", page_title = "DocGPT", page_icon = "favicon.ico")
 st.title("Welcome To DocGPT 🚀")
 st.caption("🌟 Retrieval-Augmented Generation (RAG) With LLM Models 🌟")
+
+# Input fields for API keys: HF Token & Groq API
+hugging_face_token = st.sidebar.text_input("Enter your Hugging Face Token", type="password")
+groq_api_key = st.sidebar.text_input("Enter your GROQ API Key", type="password")
 
 # Sidebar for file upload
 st.sidebar.title("Upload PDF")
@@ -78,7 +82,7 @@ if uploaded_file is not None:
     retriever = EnsembleRetriever(retrievers=[vector_retriever, keyword_retriever], weights=[0.5, 0.5])
     
     # Set up ChatGroq
-    chat = ChatGroq(temperature=0, groq_api_key=groq_api_key, model_name="Llama3-8b-8192")
+    chat = ChatGroq(temperature=0, groq_api_key=groq_api_key, model_name="Llama3-70b-8192") #Llama3-8b-8192
 
     # Prompt template
     template = """
@@ -169,7 +173,6 @@ if uploaded_file is not None:
 
     # Chat container
     chat_placeholder = st.container()
-    
     with chat_placeholder:
         for message in st.session_state.conversation:
             
@@ -182,13 +185,12 @@ if uploaded_file is not None:
                     f'</div>',
                     unsafe_allow_html=True
                 )
-            
             else:
                 assistant_response = message[10:]
                 st.markdown(
                     f'<div class="chat-container assistant-msg">'
-                    f'<span>{assistant_response}</span>'
                     f'<img src="https://img.icons8.com/color/48/000000/bot.png">'
+                    f'<span>{assistant_response}</span>'
                     f'</div>',
                     unsafe_allow_html=True
                 )
