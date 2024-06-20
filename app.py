@@ -17,8 +17,8 @@ from langchain.schema import StrOutputParser
 load_dotenv()
 
 # Get API key's from the environmental variables
-hugging_face_token = os.getenv('HF_TOKEN')
-groq_api_key = os.getenv('GROQ_API_KEY')
+# hugging_face_token = os.getenv('HF_TOKEN') # If we get from our .env file
+# groq_api_key = os.getenv('GROQ_API_KEY') # If we get from our .env file
 
 # Pdf-to-text extraction process
 def pdf_text_extraction(pdf_path):
@@ -46,7 +46,10 @@ def chunking_data(filtered_text):
 # Streamlit App
 st.set_page_config(layout = "wide", page_title = "DocGPT", page_icon = "favicon.ico")
 st.title("Welcome To DocGPT 🚀")
-st.caption("🌟 Retrieval-Augmented Generation (RAG) With LLM Models 🌟")
+st.caption("🌟 Retrieval-Augmented Generation (RAG) With LLM Model 🌟")
+
+# Sidebar for API keys and file upload
+st.sidebar.title("Credentials:")
 
 # Input fields for API keys: HF Token & Groq API
 hugging_face_token = st.sidebar.text_input("Enter your Hugging Face Token", type="password")
@@ -127,21 +130,31 @@ if uploaded_file is not None:
             box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
             z-index: 1000;
         }
-        .chat-container {
+        .user-msg-container {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 10px;
+        }
+        .user-msg {
             display: flex;
             align-items: center;
             padding: 10px;
-            margin: 0 auto;
             border-radius: 5px;
             background-color: #262730;
-            width: 60%;
-            max-width: 800px;
+            max-width: 70%;
         }
-        .user-msg {
+        .assistant-msg-container {
+            display: flex;
             justify-content: flex-start;
+            margin-bottom: 10px;
         }
         .assistant-msg {
-            justify-content: flex-start;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #262730;
+            max-width: 70%;
         }
         .chat-container img {
             width: 30px;
@@ -154,10 +167,9 @@ if uploaded_file is not None:
             flex: 1;
         }
         @media (max-width: 600px) {
-            .chat-container {
-                width: 90%;
-                flex-direction: column;
-                align-items: flex-start;
+            .user-msg,
+            .assistant-msg {
+                max-width: 90%;
             }
             .chat-container img {
                 width: 20px;
@@ -179,18 +191,22 @@ if uploaded_file is not None:
             if message.startswith("User:"):
                 user_query = message[6:]
                 st.markdown(
+                    f'<div class="user-msg-container">'
                     f'<div class="chat-container user-msg">'
                     f'<img src="https://img.icons8.com/color/48/000000/user-male-circle--v2.png">'
                     f'<span>{user_query}</span>'
+                    f'</div>'
                     f'</div>',
                     unsafe_allow_html=True
                 )
             else:
                 assistant_response = message[10:]
                 st.markdown(
+                    f'<div class="assistant-msg-container">'
                     f'<div class="chat-container assistant-msg">'
                     f'<img src="https://img.icons8.com/color/48/000000/bot.png">'
                     f'<span>{assistant_response}</span>'
+                    f'</div>'
                     f'</div>',
                     unsafe_allow_html=True
                 )
@@ -199,14 +215,17 @@ if uploaded_file is not None:
     query = st.text_input("", key = "query_input", placeholder = "Type your question here...")
     
     if st.button("Send") and query:
-        st.session_state.conversation.append(f"User: {query}")
+            st.session_state.conversation.append(f"User: {query}")
 
-        response = ""
-        for chunk in chain.stream(query):
-            response += chunk
+            response = ""
+            for chunk in chain.stream(query):
+                response += chunk
 
-        st.session_state.conversation.append(f"Assistant: {response}")
-        st.experimental_rerun()
+            st.session_state.conversation.append(f"Assistant: {response}")
+            st.experimental_rerun()
+    
+    else:
+        st.sidebar.write("Failed to extract text from the PDF.")
 
 else:
-    st.write("Please upload a PDF file to start the conversation.")
+    st.write("Please provide both API keys and upload a PDF file to start the conversation.")
