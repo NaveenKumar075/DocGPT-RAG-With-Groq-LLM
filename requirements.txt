@@ -100,6 +100,7 @@ pydantic_core==2.18.4
 pydeck==0.9.1
 Pygments==2.18.0
 pypdfium2==4.30.0
+pysqlite3==0.5.3
 PyPika==0.48.9
 pyproject_hooks==1.1.0
 pyreadline3==3.4.1
