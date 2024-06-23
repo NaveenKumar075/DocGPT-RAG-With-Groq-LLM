@@ -8,19 +8,15 @@ mkdir -p $INSTALL_DIR
 
 # Update package list and download the package
 apt-get update
-apt-get install -y libsqlite3-dev  # Install the necessary system dependency
+apt-get download libsqlite3-dev
 
-# Clone the repository
-git clone https://github.com/NaveenKumar075/DocGPT-RAG-With-Groq-LLM.git
-cd DocGPT-RAG-With-Groq-LLM/pysqlite3
+# Extract the package to the custom directory
+dpkg-deb -x libsqlite3-dev*.deb $INSTALL_DIR
 
 # Set environment variables for custom library path
 export CPATH=$INSTALL_DIR/usr/include:$CPATH
 export LIBRARY_PATH=$INSTALL_DIR/usr/lib/x86_64-linux-gnu:$LIBRARY_PATH
 export LD_LIBRARY_PATH=$INSTALL_DIR/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
-
-# Build and install pysqlite3
-python setup.py install --prefix=$INSTALL_DIR
 
 # Optionally, add the environment variables to .bashrc for persistence
 echo "export CPATH=$INSTALL_DIR/usr/include:\$CPATH" >> ~/.bashrc
