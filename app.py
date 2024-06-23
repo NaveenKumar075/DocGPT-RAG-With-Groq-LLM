@@ -1,7 +1,7 @@
 __import__('pysqlite3')
 import sys
 sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
-path = "/mount/src/DocGPT-RAG-With-Groq-LLM/db"
+path = "DocGPT-RAG-With-Groq-LLM/db"
 sys.path.append(path)
 
 import os
