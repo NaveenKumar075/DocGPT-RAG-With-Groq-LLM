@@ -89,7 +89,7 @@ def main():
         )
         
         # Words to vectorization and storing them in a chromadb (Vector Database)
-        vectorstore = Chroma.from_documents(splitted_data, embeddings, persist_directory="db")
+        vectorstore = Chroma.from_documents(documents=splitted_data, embedding=embeddings, persist_directory="./db")
         vectorstore.persist()
         vector_retriever = vectorstore.as_retriever(search_kwargs={"k":2})
         
