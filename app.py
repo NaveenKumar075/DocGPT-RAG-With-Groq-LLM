@@ -4,7 +4,13 @@ sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 import os
 import re
-import sqlite3
+import importlib
+try:
+  sqlite3 = importlib.import_module('pysqlite3')
+  version = sqlite3.version_info  # Check if attribute exists
+  print(f"pysqlite3 version: {version}")
+except AttributeError:
+  print("pysqlite3 doesn't have 'sqlite_version_info' attribute")
 import pdfplumber
 import streamlit as st
 from pathlib import Path
