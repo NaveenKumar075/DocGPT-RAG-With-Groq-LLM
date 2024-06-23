@@ -70,19 +70,40 @@ if uploaded_file is not None:
     filtered_text = text_preprocessing(text)
     splitted_data = chunking_data(filtered_text)
     
-    # Initializing hugging face embedding - UAE-Large-V1 (Universal AnglE Embedding)
-    embeddings = HuggingFaceInferenceAPIEmbeddings(
-        api_key=hugging_face_token, model_name="WhereIsAI/UAE-Large-V1"
-    )
+    persist_directory = "./db"
+
+    try:
+        # Check if directory exists, if not, create it
+        if not os.path.exists(persist_directory):
+            # logging.info(f"Directory '{persist_directory}' does not exist. Creating it.")
+            os.makedirs(persist_directory)
+
+        # Check directory permissions
+        if not os.access(persist_directory, os.R_OK):
+            # logging.warning(f"Read permission for '{persist_directory}' is missing. Setting it.")
+            os.chmod(persist_directory, 0o755)
+
+        if not os.access(persist_directory, os.W_OK):
+            # logging.warning(f"Write permission for '{persist_directory}' is missing. Setting it.")
+            os.chmod(persist_directory, 0o755)
     
-    # Words to vectorization and storing them in a chromadb (Vector Database)
-    vectorstore = Chroma.from_documents(splitted_data, embeddings, persist_directory="./db")
-    vector_retriever = vectorstore.as_retriever(search_kwargs={"k":2})
-    
-    # Integrating vector_retriever and keyword_retriever (Hybrid Search)
-    keyword_retriever = BM25Retriever.from_documents(splitted_data)
-    keyword_retriever.k = 2
-    retriever = EnsembleRetriever(retrievers=[vector_retriever, keyword_retriever], weights=[0.5, 0.5])
+        # Initializing hugging face embedding - UAE-Large-V1 (Universal AnglE Embedding)
+        embeddings = HuggingFaceInferenceAPIEmbeddings(
+            api_key=hugging_face_token, model_name="WhereIsAI/UAE-Large-V1"
+        )
+        
+        # Words to vectorization and storing them in a chromadb (Vector Database)
+        vectorstore = Chroma.from_documents(splitted_data, embeddings, persist_directory=persist_directory)
+        vector_retriever = vectorstore.as_retriever(search_kwargs={"k":2})
+        
+        # Integrating vector_retriever and keyword_retriever (Hybrid Search)
+        keyword_retriever = BM25Retriever.from_documents(splitted_data)
+        keyword_retriever.k = 2
+        retriever = EnsembleRetriever(retrievers=[vector_retriever, keyword_retriever], weights=[0.5, 0.5])
+        
+    except Exception as e:
+    # logging.exception("An error occurred during initialization.")
+        print(e)
     
     # Set up ChatGroq
     chat = ChatGroq(temperature=0, groq_api_key=groq_api_key, model_name="Llama3-70b-8192") #Llama3-8b-8192
