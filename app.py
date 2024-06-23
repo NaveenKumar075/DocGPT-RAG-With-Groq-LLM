@@ -70,13 +70,16 @@ if uploaded_file is not None:
     filtered_text = text_preprocessing(text)
     splitted_data = chunking_data(filtered_text)
     
+    # Debug information
+    st.sidebar.write("Text extraction successful. Number of chunks created: ", len(splitted_data))
+    
     # Initializing hugging face embedding - UAE-Large-V1 (Universal AnglE Embedding)
     embeddings = HuggingFaceInferenceAPIEmbeddings(
         api_key=hugging_face_token, model_name="WhereIsAI/UAE-Large-V1"
     )
     
     # Words to vectorization and storing them in a chromadb (Vector Database)
-    vectorstore = Chroma.from_documents(splitted_data, embeddings, persist_directory="./db")
+    vectorstore = Chroma.from_documents(splitted_data, embeddings)
     vector_retriever = vectorstore.as_retriever(search_kwargs={"k":2})
     
     # Integrating vector_retriever and keyword_retriever (Hybrid Search)
