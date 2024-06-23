@@ -79,7 +79,7 @@ if uploaded_file is not None:
     )
     
     # Words to vectorization and storing them in a chromadb (Vector Database)
-    vectorstore = Chroma.from_documents(splitted_data, embeddings)
+    vectorstore = Chroma.from_documents(splitted_data, embeddings, persist_directory="./db")
     vector_retriever = vectorstore.as_retriever(search_kwargs={"k":2})
     
     # Integrating vector_retriever and keyword_retriever (Hybrid Search)
@@ -226,9 +226,6 @@ if uploaded_file is not None:
 
             st.session_state.conversation.append(f"Assistant: {response}")
             st.experimental_rerun()
-    
-    else:
-        st.sidebar.write("Failed to extract text from the PDF.")
 
 else:
     st.write("Please provide both API keys and upload a PDF file to start the conversation.")
