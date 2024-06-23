@@ -1,7 +1,13 @@
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 import os
 import re
+import sqlite3
 import pdfplumber
 import streamlit as st
+from pathlib import Path
 from dotenv import load_dotenv
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.schema import Document
@@ -19,6 +25,9 @@ load_dotenv()
 # Get API key's from the environmental variables
 hugging_face_token = os.getenv('HF_TOKEN') # If we get from our .env file
 groq_api_key = os.getenv('GROQ_API_KEY') # If we get from our .env file
+
+# To store the vectors in a directory 
+LOCAL_VECTOR_STORE_DIR = Path(__file__).resolve().parent.joinpath('db', 'vector_store')
 
 # Pdf-to-text extraction process
 def pdf_text_extraction(pdf_path):
@@ -79,7 +88,7 @@ if uploaded_file is not None:
     )
     
     # Words to vectorization and storing them in a chromadb (Vector Database)
-    vectorstore = Chroma.from_documents(splitted_data, embeddings, persist_directory="./db")
+    vectorstore = Chroma.from_documents(splitted_data, embeddings, persist_directory=LOCAL_VECTOR_STORE_DIR.as_posix())
     vector_retriever = vectorstore.as_retriever(search_kwargs={"k":2})
     
     # Integrating vector_retriever and keyword_retriever (Hybrid Search)
