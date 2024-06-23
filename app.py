@@ -1,6 +1,5 @@
 import os
 import re
-import chromadb
 import pdfplumber
 import streamlit as st
 from dotenv import load_dotenv
