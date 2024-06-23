@@ -17,8 +17,8 @@ from langchain.schema import StrOutputParser
 load_dotenv()
 
 # Get API key's from the environmental variables
-# hugging_face_token = os.getenv('HF_TOKEN') # If we get from our .env file
-# groq_api_key = os.getenv('GROQ_API_KEY') # If we get from our .env file
+hugging_face_token = os.getenv('HF_TOKEN') # If we get from our .env file
+groq_api_key = os.getenv('GROQ_API_KEY') # If we get from our .env file
 
 # Pdf-to-text extraction process
 def pdf_text_extraction(pdf_path):
@@ -52,8 +52,8 @@ st.caption("🌟 Retrieval-Augmented Generation (RAG) With LLM Model 🌟")
 st.sidebar.title("Credentials:")
 
 # Input fields for API keys: HF Token & Groq API
-hugging_face_token = st.sidebar.text_input("Enter your Hugging Face Token", type="password")
-groq_api_key = st.sidebar.text_input("Enter your GROQ API Key", type="password")
+# hugging_face_token = st.sidebar.text_input("Enter your Hugging Face Token", type="password")
+# groq_api_key = st.sidebar.text_input("Enter your GROQ API Key", type="password")
 
 # Sidebar for file upload
 st.sidebar.title("Upload PDF")
