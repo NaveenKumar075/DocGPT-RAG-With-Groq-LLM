@@ -5,3 +5,4 @@ langchain_groq
 langchain-community
 pdfplumber
 python-dotenv
+pysqlite3-binary
