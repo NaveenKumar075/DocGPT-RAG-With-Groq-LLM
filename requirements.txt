@@ -1,7 +1,7 @@
-streamlit==1.13.0
-pdfplumber==0.5.28
-python-dotenv==0.21.0
-langchain==0.0.123
-langchain_community==0.0.10
-langchain_groq==0.0.1
-chromadb==0.3.23
+chromadb
+streamlit
+langchain
+langchain_groq
+langchain-community
+pdfplumber
+python-dotenv
