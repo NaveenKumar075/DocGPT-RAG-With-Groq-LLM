@@ -1,6 +1,7 @@
 chromadb
 streamlit
 langchain
+langchain_groq
 langchain-community
 pdfplumber
 python-dotenv
