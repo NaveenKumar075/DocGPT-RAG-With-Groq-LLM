@@ -1,6 +1,6 @@
 langchain
 langchain-community
-chromadb==0.3.29
+chromadb
 langchain_groq
 pdfplumber
 python-dotenv
