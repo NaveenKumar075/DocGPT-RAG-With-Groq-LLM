@@ -1,6 +1,6 @@
 chromadb
 streamlit
-langchain
+langchain==0.1.17
 langchain_groq
 langchain-community
 pdfplumber
