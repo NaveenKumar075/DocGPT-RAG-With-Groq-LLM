@@ -1,4 +1,6 @@
 chromadb
 streamlit
 langchain
+langchain-community
 pdfplumber
+python-dotenv
