@@ -1,12 +1,12 @@
-__import__('pysqlite3')
-import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+# __import__('pysqlite3')
+# import sys
+# sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 path = "DocGPT-RAG-With-Groq-LLM/db"
 sys.path.append(path)
 
 import os
 import re
-import sqlite3
+# import sqlite3
 import pdfplumber
 import streamlit as st
 from pathlib import Path
