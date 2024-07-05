@@ -1,6 +1,6 @@
 streamlit==1.33.0
 langchain==0.1.19
-chromadb
+chromadb==0.4.18
 langchain_groq
 langchain-community
 pdfplumber
