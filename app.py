@@ -7,7 +7,6 @@ sys.path.append(path)
 import os
 import re
 # import sqlite3
-import chromadb
 import pdfplumber
 import streamlit as st
 from pathlib import Path
