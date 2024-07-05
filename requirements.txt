@@ -1,4 +1,4 @@
-langchain-chroma
+chromadb==0.4.24
 streamlit
 langchain
 langchain_groq
