@@ -1,5 +1,5 @@
 # __import__('pysqlite3')
-# import sys
+import sys
 # sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 path = "DocGPT-RAG-With-Groq-LLM/db"
 sys.path.append(path)
