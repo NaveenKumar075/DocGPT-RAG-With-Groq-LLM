@@ -1,8 +1,7 @@
 chromadb
 streamlit
-langchain==0.1.17
+langchain
 langchain_groq
-langchain-community
+langchain-community==0.1.17
 pdfplumber
 python-dotenv
-pysqlite3-binary
