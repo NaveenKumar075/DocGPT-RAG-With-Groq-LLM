@@ -30,7 +30,7 @@ hugging_face_token = os.getenv('HF_TOKEN') # If we get from our .env file
 groq_api_key = os.getenv('GROQ_API_KEY') # If we get from our .env file
 
 # To store the vectors in a directory 
-LOCAL_VECTOR_STORE_DIR = Path(__file__).resolve().parent.joinpath('db', 'vector_store')
+# LOCAL_VECTOR_STORE_DIR = Path(__file__).resolve().parent.joinpath('db', 'vector_store')
 
 # Pdf-to-text extraction process
 def pdf_text_extraction(pdf_path):
