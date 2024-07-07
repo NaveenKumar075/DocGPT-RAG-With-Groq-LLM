@@ -1,6 +1,7 @@
 langchain
 langchain-community
 faiss-cpu
+rank_bm25
 langchain_groq
 pdfplumber
 python-dotenv
