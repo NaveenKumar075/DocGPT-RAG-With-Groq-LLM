@@ -4,3 +4,4 @@ faiss-cpu
 langchain_groq
 pdfplumber
 python-dotenv
+streamlit
