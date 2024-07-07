@@ -1,6 +1,6 @@
 langchain
 langchain-community
-chromadb
+faiss-cpu
 langchain_groq
 pdfplumber
 python-dotenv
