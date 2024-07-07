@@ -1,19 +1,20 @@
-__import__('pysqlite3')
+# __import__('pysqlite3')
 import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+# sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 path = "DocGPT-RAG-With-Groq-LLM/db"
 sys.path.append(path)
 
 import os
 import re
-import sqlite3
+# import sqlite3
 import pdfplumber
 import streamlit as st
 from pathlib import Path
 from dotenv import load_dotenv
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.schema import Document
-from langchain_community.vectorstores import Chroma
+# from langchain_community.vectorstores import Chroma
+from langchain_community.vectorstores import FAISS
 from langchain_community.embeddings import HuggingFaceInferenceAPIEmbeddings
 from langchain.retrievers import BM25Retriever, EnsembleRetriever
 from langchain_groq import ChatGroq
@@ -90,9 +91,9 @@ def main():
             api_key=hugging_face_token, model_name="WhereIsAI/UAE-Large-V1"
         )
         
-        # Words to vectorization and storing them in a chromadb (Vector Database)
-        vectorstore = Chroma.from_documents(documents=splitted_data, embedding=embeddings, persist_directory="chroma_store") # LOCAL_VECTOR_STORE_DIR.as_posix()
-        vectorstore.persist()
+        # Words to vectorization and storing them in a FAISS (Vector Database)
+        # vectorstore = Chroma.from_documents(documents=splitted_data, embedding=embeddings, persist_directory="chroma_store") # LOCAL_VECTOR_STORE_DIR.as_posix() # chromadb
+        vectorstore = FAISS.from_documents(splitted_data, embeddings)
         vector_retriever = vectorstore.as_retriever(search_kwargs={"k":2})
         
         # Integrating vector_retriever and keyword_retriever (Hybrid Search)
