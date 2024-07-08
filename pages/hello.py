@@ -9,6 +9,8 @@ st.write("# Welcome to DocGPT! 👋")
 
 st.markdown(
     """
+    <div style="text-align: justify;">
+    
     **DocGPT** is an innovative web application developed using Streamlit. It allows users to upload PDF documents and interact with them through an intelligent chatbot. The application leverages advanced technologies such as the **Retrieval-Augmented Generation (RAG)** architecture and **Large Language Models (LLM)** to provide accurate and context-aware responses. With the integration of the **Groq API** for enhanced performance, **DocGPT** ensures efficient and reliable document interaction. The user-friendly interface makes it easy for users to upload documents and query information seamlessly.
 
     ### DocGPT WorkFlow!
