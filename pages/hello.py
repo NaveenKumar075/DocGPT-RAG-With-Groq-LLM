@@ -13,7 +13,7 @@ st.markdown(
 
     ### DocGPT WorkFlow!
 
-    ![DocGPT WorkFlow](https://media.giphy.com/media/3o7aD5tv1ogNBtDhDi/giphy.gif)
+    ![DocGPT WorkFlow](https://github.com/NaveenKumar075/DocGPT-RAG-With-Groq-LLM/assets/104119173/547730ea-f3e3-40c0-8a32-1294df34a6de)
     
     ### Want to learn more?
     - Check out [streamlit.io](https://streamlit.io)
