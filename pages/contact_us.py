@@ -93,9 +93,11 @@ message = st.text_area("Message")
 if st.button("Submit"):
     if name and email and message:
         try:
-            sender_email = "your-email@gmail.com"
-            sender_password = "your-email-password"
-            recipient_email = "recipient-email@gmail.com"
+            sender_email = "naveenkumarmusiq@gmail.com"
+            sender_password = "cjjntqmlfaretnvl"
+            recipient_email = "docgptrag@gmail.com"
+
+            cc = ['jothika.r20@gmail.com', 'naveenkumarforjobs@gmail.com']
 
             # Create the email content
             msg = MIMEMultipart()
@@ -111,10 +113,11 @@ if st.button("Submit"):
             server.starttls()
             server.login(sender_email, sender_password)
             text = msg.as_string()
-            server.sendmail(sender_email, recipient_email, text)
+            server.sendmail(sender_email, [recipient_email] + cc, text)
             server.quit()
 
-            st.success("Thank you for your feedback! Your message has been sent.")
+            st.success("Thank you for your feedback! Your message has been sent :)")
+        
         except Exception as e:
             st.error(f"An error occurred: {e}")
     else:
