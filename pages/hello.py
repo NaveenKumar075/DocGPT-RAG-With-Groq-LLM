@@ -26,6 +26,15 @@ st.markdown(
     - **Content Analysis:** Analyze and extract data or insights from uploaded documents.
     - **Document Navigation:** Navigate through documents with ease using the chatbot interface
 
+    ### Future Works for DocGPT
+    - Implementation of AI Agents for Specific Roles or Tasks
+    - Support for All Types of Documents
+    - User Chat History Storage
+
+    #### User Feedback Integration:
+    - Collect and utilize user feedback to improve and refine our application continuously.
+    - **DocGPT** aims to offer a more versatile, user-centric, and powerful document interaction experience.
+
     </div>
 """, unsafe_allow_html=True
 )
