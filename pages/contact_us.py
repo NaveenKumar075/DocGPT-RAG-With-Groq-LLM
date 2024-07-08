@@ -10,52 +10,62 @@ st.set_page_config(
 
 st.write("# Welcome to My Profile! 👋")
 
-st.sidebar.success("Select a demo above.")
-
-# CSS to create a card layout, circular image, and hover effect
+# Define CSS for profile card layout
 st.markdown(
     """
     <style>
     .profile-container {
         display: flex;
-        flex-direction: column;
-        align-items: center;
         justify-content: center;
+        flex-wrap: wrap;
     }
     .profile-card {
         display: flex;
+        flex-direction: column; /* Arrange content in a column layout */
         align-items: center;
         justify-content: flex-start;
-        border: 1px solid #e6e6e6;
+        border: 1px solid #262730; /* Border color */
         border-radius: 10px;
         padding: 20px;
-        width: 350px;
+        width: 45%;
         margin: 10px;
         transition: box-shadow 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #262730; /* Card background color */
+        color: #ffffff; /* Text color */
     }
     .profile-card:hover {
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        transform: translateY(-5px); /* Adjust hover effect */
     }
     .circle-img {
         border-radius: 50%;
-        width: 100px;
-        height: 100px;
+        width: 150px; /* Adjust image size */
+        height: 150px; /* Adjust image size */
         object-fit: cover;
-        margin-right: 20px;
+        margin-bottom: 20px; /* Add spacing between image and content */
     }
     .profile-info {
-        text-align: left;
+        text-align: center; /* Center align profile information */
     }
     .profile-name {
         font-size: 1.5em;
         margin: 0;
     }
-    .profile-link {
-        color: #1f77b4;
-        text-decoration: none;
+    .profile-links {
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Center align links */
+        margin-top: 10px;
     }
-    .profile-link:hover {
-        text-decoration: underline;
+    .profile-links a {
+        display: inline-block;
+        margin-right: 10px;
+    }
+    .profile-links img {
+        width: 25px;
+        height: 25px;
+        margin-right: 5px;
     }
     </style>
     """, 
@@ -69,15 +79,31 @@ st.markdown(
         <div class="profile-card">
             <img src="https://via.placeholder.com/150" alt="Profile Picture 1" class="circle-img">
             <div class="profile-info">
-                <p class="profile-name">Your Name 1</p>
-                <a href="https://your-link-1.com" target="_blank" class="profile-link">Your Link 1</a>
+                <p class="profile-name">Jothika R</p>
+                <p>Hey there, I'm Jothika, aspiring ML Engineer, with nearly a year experience in data, passionate about AI, Gen AI, and LLM, eager to create impactful projects!</p>
+                <div class="profile-links">
+                    <a href="https://www.linkedin.com/in/jothika-r/" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/768px-LinkedIn_logo_initials.png" alt="LinkedIn" title="LinkedIn">
+                    </a>
+                    <a href="https://github.com/jothikar" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub" title="GitHub">
+                    </a>
+                </div>
             </div>
         </div>
         <div class="profile-card">
             <img src="https://via.placeholder.com/150" alt="Profile Picture 2" class="circle-img">
             <div class="profile-info">
-                <p class="profile-name">Your Name 2</p>
-                <a href="https://your-link-2.com" target="_blank" class="profile-link">Your Link 2</a>
+                <p class="profile-name">Naveen Kumar</p>
+                <p>Hey there, I'm Naveen, aspiring ML Engineer, with nearly a year experience in data, passionate about AI, Gen AI, and LLM, eager to create impactful projects!</p>
+                <div class="profile-links">
+                    <a href="https://www.linkedin.com/in/naveenkumar/" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/768px-LinkedIn_logo_initials.png" alt="LinkedIn" title="LinkedIn">
+                    </a>
+                    <a href="https://github.com/naveenkumar" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub" title="GitHub">
+                    </a>
+                </div>
             </div>
         </div>
     </div>
