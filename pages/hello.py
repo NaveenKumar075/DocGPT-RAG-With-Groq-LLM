@@ -1,20 +1,15 @@
 import streamlit as st
 
-st.title("Hello 👋")
-
 # st.set_page_config(
 #     page_title="Hello",
 #     page_icon="👋",
 # )
 
-st.write("# Welcome to Streamlit! 👋")
+st.write("# Welcome to DocGPT! 👋")
 
 st.markdown(
     """
-    Streamlit is an open-source app framework built specifically for
-    Machine Learning and Data Science projects.
-    **👈 Select a demo from the sidebar** to see some examples
-    of what Streamlit can do!
+    *DocGPT* is an innovative web application developed using Streamlit. It allows users to upload PDF documents and interact with them through an intelligent chatbot. The application leverages advanced technologies such as the *Retrieval-Augmented Generation (RAG)* architecture and *Large Language Models (LLM)* to provide accurate and context-aware responses. With the integration of the *Groq API* for enhanced performance, *DocGPT* ensures efficient and reliable document interaction. The user-friendly interface makes it easy for users to upload documents and query information seamlessly.
     ### Want to learn more?
     - Check out [streamlit.io](https://streamlit.io)
     - Jump into our [documentation](https://docs.streamlit.io)
