@@ -94,7 +94,7 @@ st.markdown(
         <div class="profile-card">
             <img src="https://via.placeholder.com/150" alt="Profile Picture 2" class="circle-img">
             <div class="profile-info">
-                <p class="profile-name">Naveen Kumar</p>
+                <p class="profile-name">Naveen Kumar S</p>
                 <p>Hey there, I'm Naveen, aspiring ML Engineer, with nearly a year experience in data, passionate about AI, Gen AI, and LLM, eager to create impactful projects!</p>
                 <div class="profile-links">
                     <a href="https://www.linkedin.com/in/naveenkumar/" target="_blank">
