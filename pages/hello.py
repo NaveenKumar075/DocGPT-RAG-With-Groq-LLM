@@ -25,5 +25,7 @@ st.markdown(
     - **Interactive Q&A:** Ask questions about the document content and get precise answers.
     - **Content Analysis:** Analyze and extract data or insights from uploaded documents.
     - **Document Navigation:** Navigate through documents with ease using the chatbot interface
-"""
+
+    </div>
+""", unsafe_allow_html=True
 )
