@@ -15,14 +15,13 @@ st.markdown(
 
     ![DocGPT WorkFlow](https://github.com/NaveenKumar075/DocGPT-RAG-With-Groq-LLM/assets/104119173/547730ea-f3e3-40c0-8a32-1294df34a6de)
     
-    ### Want to learn more?
-    - Check out [streamlit.io](https://streamlit.io)
-    - Jump into our [documentation](https://docs.streamlit.io)
-    - Ask a question in our [community
-        forums](https://discuss.streamlit.io)
-    ### See more complex demos
-    - Use a neural net to [analyze the Udacity Self-driving Car Image
-        Dataset](https://github.com/streamlit/demo-self-driving)
-    - Explore a [New York City rideshare dataset](https://github.com/streamlit/demo-uber-nyc-pickups)
+    The **DocGPT** workflow for the RAG architecture involves several key steps. It starts with document ingestion, followed by text extraction and preprocessing. The data is then chunked and converted into embeddings, which are stored in a vector database. User queries are matched with relevant data through hybrid search and retrieval. The results are processed by an LLM model, enhanced with a prompt template, and the final response is delivered to the user.
+
+    ### Features:
+    - **Document Summarization:** Quickly summarize key points from large PDF documents.
+    - **Information Retrieval:** Easily find relevant information or specific sections within documents.
+    - **Interactive Q&A:** Ask questions about the document content and get precise answers.
+    - **Content Analysis:** Analyze and extract data or insights from uploaded documents.
+    - **Document Navigation:** Navigate through documents with ease using the chatbot interface
 """
 )
