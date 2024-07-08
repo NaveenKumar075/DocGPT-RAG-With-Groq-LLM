@@ -97,7 +97,7 @@ if st.button("Submit"):
             sender_password = "cjjntqmlfaretnvl"
             recipient_email = "docgptrag@gmail.com"
 
-            cc = ['jothika.r20@gmail.com', 'naveenkumarforjobs@gmail.com']
+            cc = ['jothika.r2031@gmail.com', 'friendschannel007@gmail.com']
 
             # Create the email content
             msg = MIMEMultipart()
