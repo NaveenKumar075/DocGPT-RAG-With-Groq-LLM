@@ -7,8 +7,6 @@ st.set_page_config(
 
 st.write("# Welcome to My Profile! 👋")
 
-st.sidebar.success("Select a demo above.")
-
 # CSS to create a circular image
 st.markdown(
     """
@@ -49,8 +47,17 @@ st.markdown(
 # Add a link
 st.markdown(
     """
-    <div class="center-text">
-        <a href="https://your-link.com" target="_blank">Your Link</a>
+    <div class="profile-container">
+        <div class="profile-item">
+            <img src="https://via.placeholder.com/150" alt="Profile Picture 1" class="circle-img">
+            <h2>Your Name 1</h2>
+            <div><a href="https://your-link-1.com" target="_blank">Your Link 1</a></div>
+        </div>
+        <div class="profile-item">
+            <img src="https://via.placeholder.com/150" alt="Profile Picture 2" class="circle-img">
+            <h2>Your Name 2</h2>
+            <div><a href="https://your-link-2.com" target="_blank">Your Link 2</a></div>
+        </div>
     </div>
     """, 
     unsafe_allow_html=True
@@ -62,4 +69,4 @@ name = st.text_input("Name")
 email = st.text_input("Email")
 message = st.text_area("Message")
 if st.button("Submit"):
-    st.success("Thank you for your feedback!")
+    st.success("Thank you for your feedback :)")
