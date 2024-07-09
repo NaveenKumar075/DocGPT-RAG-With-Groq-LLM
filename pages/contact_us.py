@@ -92,7 +92,7 @@ st.markdown(
             </div>
         </div>
         <div class="profile-card">
-            <img src="https://i.postimg.cc/RZvRhtxM/NK-Profile-Pic.jpg" alt="Profile Picture 2" class="circle-img">
+            <img src="https://i.postimg.cc/SR8BS9F6/NK-Profile-Pic.jpg" alt="Profile Picture 2" class="circle-img">
             <div class="profile-info">
                 <p class="profile-name">Naveen Kumar S</p>
                 <p>Hey there, I'm Naveen, aspiring ML Engineer, with nearly a year experience in data, passionate about AI, Gen AI, and LLM, eager to create impactful projects!</p>
