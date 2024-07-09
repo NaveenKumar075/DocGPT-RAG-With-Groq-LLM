@@ -79,7 +79,7 @@ st.markdown(
         <div class="profile-card">
             <img src="https://i.postimg.cc/vTprG1Ld/Joe-Profile-Pic.jpg" alt="Jothika R" class="circle-img">
             <div class="profile-info">
-                <p class="profile-name">Jothika R</p>
+                <p class="profile-name"><strong>Jothika R</strong></p>
                 <p>Hello! I’m Jothika, an ML Engineer with a passion for AI and ML algorithms. I’m on a mission to innovate and develop projects that make a significant impact!</p>
                 <div class="profile-links">
                     <a href="https://www.linkedin.com/in/jothika-r2031/" target="_blank">
@@ -94,7 +94,7 @@ st.markdown(
         <div class="profile-card">
             <img src="https://i.postimg.cc/SR8BS9F6/NK-Profile-Pic.jpg" alt="Naveen Kumar S" class="circle-img">
             <div class="profile-info">
-                <p class="profile-name">Naveen Kumar S</p>
+                <p class="profile-name"><strong>Naveen Kumar S</strong></p>
                 <p>Hi! I'm Naveen, an aspiring ML Engineer with nearly a year of experience in data. Passionate about AI, Generative AI, and LLM, I'm eager to develop impactful projects that make a difference.</p>
                 <div class="profile-links">
                     <a href="https://www.linkedin.com/in/naveenkumar075/" target="_blank">
