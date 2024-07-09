@@ -192,6 +192,19 @@ def main():
             </style>
             """, unsafe_allow_html=True)
 
+        def update_query():
+            query = st.session_state.query_input
+            if st.button("Send") and query:
+                    st.session_state.conversation.append(f"User: {query}")
+    
+                    response = ""
+                    for chunk in chain.stream(query):
+                        response += chunk
+    
+                    st.session_state.conversation.append(f"Assistant: {response}")
+                    st.session_state.update({"query_input": ""})
+                    st.experimental_rerun()
+
         # Chat container
         chat_placeholder = st.container()
         with chat_placeholder:
@@ -219,19 +232,6 @@ def main():
                         f'</div>',
                         unsafe_allow_html=True
                     )
-        
-        def update_query():
-            query = st.session_state.query_input
-            if st.button("Send") and query:
-                    st.session_state.conversation.append(f"User: {query}")
-    
-                    response = ""
-                    for chunk in chain.stream(query):
-                        response += chunk
-    
-                    st.session_state.conversation.append(f"Assistant: {response}")
-                    st.session_state.update({"query_input": ""})
-                    st.experimental_rerun()
 
         # Setup for the conversation
         query = st.text_input("", key = "query_input", placeholder = "You can ask your questions now ...", on_change=update_query)
