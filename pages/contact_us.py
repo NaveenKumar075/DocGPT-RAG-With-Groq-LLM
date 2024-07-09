@@ -77,30 +77,31 @@ st.markdown(
     """
     <div class="profile-container">
         <div class="profile-card">
-            <img src="https://i.postimg.cc/vTprG1Ld/Joe-Profile-Pic.jpg" alt="Profile Picture 1" class="circle-img">
+            <img src="https://i.postimg.cc/vTprG1Ld/Joe-Profile-Pic.jpg" alt="Jothika R" class="circle-img">
             <div class="profile-info">
                 <p class="profile-name">Jothika R</p>
-                <p>👋 Hey there, I'm Jothika, an aspiring Machine Learning Engineer with a passion for diving into the world of AI and ML algorithms to create impactful projects!</p>
+                <p>👋 Hey there, I'm Jothika, an aspiring ML Engineer with a passion for diving into the world of AI and ML algorithms to create impactful projects!</p>
                 <div class="profile-links">
-                    <a href="https://www.linkedin.com/in/jothika-r/" target="_blank">
+                    <a href="https://www.linkedin.com/in/jothika-r2031/" target="_blank">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/768px-LinkedIn_logo_initials.png" alt="LinkedIn" title="LinkedIn">
                     </a>
-                    <a href="https://github.com/jothikar" target="_blank">
+                    <a href="https://github.com/jo-2031" target="_blank">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub" title="GitHub">
                     </a>
                 </div>
             </div>
         </div>
+        
         <div class="profile-card">
-            <img src="https://i.postimg.cc/SR8BS9F6/NK-Profile-Pic.jpg" alt="Profile Picture 2" class="circle-img">
+            <img src="https://i.postimg.cc/SR8BS9F6/NK-Profile-Pic.jpg" alt="Naveen Kumar S" class="circle-img">
             <div class="profile-info">
                 <p class="profile-name">Naveen Kumar S</p>
                 <p>👋 Hey there, I'm Naveen, aspiring ML Engineer, with nearly a year experience in data, passionate about AI, Gen AI, and LLM, eager to create impactful projects!</p>
                 <div class="profile-links">
-                    <a href="https://www.linkedin.com/in/naveenkumar/" target="_blank">
+                    <a href="https://www.linkedin.com/in/naveenkumar075/" target="_blank">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/768px-LinkedIn_logo_initials.png" alt="LinkedIn" title="LinkedIn">
                     </a>
-                    <a href="https://github.com/naveenkumar" target="_blank">
+                    <a href="https://github.com/NaveenKumar075" target="_blank">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub" title="GitHub">
                     </a>
                 </div>
