@@ -200,8 +200,8 @@ def main():
                         st.session_state.conversation.append(f"User: {query}")
         
                         response = ""
-                        for chunk in chain.stream(query):
-                            response += chunk
+                        for char in query:  # Iterate directly over the string
+                            response += char
         
                         st.session_state.conversation.append(f"Assistant: {response}")
                         st.session_state.query_input = ""
