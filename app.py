@@ -228,7 +228,7 @@ def main():
                     response += chunk
 
                 st.session_state.conversation.append(f"Assistant: {response}")
-                query.value = ""
+                st.session_state.query_input = ""
                 st.experimental_rerun()
 
     else:
