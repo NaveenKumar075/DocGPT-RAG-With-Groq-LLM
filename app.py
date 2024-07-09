@@ -192,6 +192,10 @@ def main():
             </style>
             """, unsafe_allow_html=True)
 
+        # query_input cleaner
+        def clear_text():
+            st.session_state.query_input = ""
+
         # Chat container
         chat_placeholder = st.container()
         with chat_placeholder:
@@ -224,13 +228,13 @@ def main():
         query = st.text_input("", key = "query_input", placeholder = "You can ask your questions now ...")
         
         if st.button("Send") and query.strip():
-                st.session_state.conversation.append(f"User: {query}")
+                st.session_state.conversation.append(f"User: {query.strip()}")
                 response = ""
                 for chunk in chain.stream(query):
                     response += chunk
 
                 st.session_state.conversation.append(f"Assistant: {response}")
-                st.session_state.query_input = ""
+                clear_text()
                 st.experimental_rerun()
 
     else:
