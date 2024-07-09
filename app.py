@@ -192,18 +192,20 @@ def main():
             </style>
             """, unsafe_allow_html=True)
 
+        # query_input cleaner
         def update_query():
-            query = st.session_state.query_input
-            if st.button("Send") and query:
-                    st.session_state.conversation.append(f"User: {query}")
-    
-                    response = ""
-                    for chunk in chain.stream(query):
-                        response += chunk
-    
-                    st.session_state.conversation.append(f"Assistant: {response}")
-                    st.session_state.update({"query_input": ""})
-                    st.experimental_rerun()
+            if "query_input" in st.session_state:
+                query = st.session_state.query_input
+                if st.button("Send") and query:
+                        st.session_state.conversation.append(f"User: {query}")
+        
+                        response = ""
+                        for chunk in chain.stream(query):
+                            response += chunk
+        
+                        st.session_state.conversation.append(f"Assistant: {response}")
+                        st.session_state.query_input = ""
+                        st.experimental_rerun()
 
         # Chat container
         chat_placeholder = st.container()
