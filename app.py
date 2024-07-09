@@ -192,21 +192,6 @@ def main():
             </style>
             """, unsafe_allow_html=True)
 
-        # query_input cleaner
-        def update_query():
-            if "query_input" in st.session_state:
-                query = st.session_state.query_input
-                if st.button("Send") and query:
-                        st.session_state.conversation.append(f"User: {query}")
-        
-                        response = ""
-                        for char in query:  # Iterate directly over the string
-                            response += char
-        
-                        st.session_state.conversation.append(f"Assistant: {response}")
-                        st.session_state.query_input = ""
-                        st.experimental_rerun()
-
         # Chat container
         chat_placeholder = st.container()
         with chat_placeholder:
@@ -234,9 +219,18 @@ def main():
                         f'</div>',
                         unsafe_allow_html=True
                     )
-
+        
         # Setup for the conversation
-        query = st.text_input("", key = "query_input", placeholder = "You can ask your questions now ...", on_change=update_query)
+        query = st.text_input("", key = "query_input", placeholder = "You can ask your questions now ...")
+        
+        if st.button("Send") and query:
+                st.session_state.conversation.append(f"User: {query}")
+                response = ""
+                for chunk in chain.stream(query):
+                    response += chunk
+
+                st.session_state.conversation.append(f"Assistant: {response}")
+                st.experimental_rerun()
 
     else:
         st.write("Please upload a PDF file to start the conversation!")
