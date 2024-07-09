@@ -225,7 +225,7 @@ def main():
                     )
         
         # Setup for the conversation
-        query = st.text_input("", key = "query_input", placeholder = "You can ask your questions now ...")
+        query = st.text_input("", key = "query_input", value = st.session_state.query_input,  placeholder = "You can ask your questions now ...")
         
         if st.button("Send") and query.strip():
                 st.session_state.conversation.append(f"User: {query.strip()}")
