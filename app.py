@@ -124,8 +124,8 @@ def main():
         # Initialize session state for conversation history
         if "conversation" not in st.session_state:
             st.session_state.conversation = []
-        if "query_input" not in st.session_state:
-            st.session_state.query_input = ""
+        # if "query_input" not in st.session_state:
+        #     st.session_state.query_input = ""
             
         # Define CSS styles for responsiveness and better design
         st.markdown("""
@@ -193,8 +193,8 @@ def main():
             """, unsafe_allow_html=True)
 
         # query_input cleaner
-        def clear_text():
-            st.session_state.query_input = ""
+        # def clear_text():
+        #     st.session_state.query_input = ""
 
         # Chat container
         chat_placeholder = st.container()
@@ -225,16 +225,16 @@ def main():
                     )
         
         # Setup for the conversation
-        query = st.text_input("", key = "query_input", value = st.session_state.query_input,  placeholder = "You can ask your questions now ...")
+        query = st.text_input("", key = "query_input", placeholder = "You can ask your questions now ...")
         
         if st.button("Send") and query.strip():
                 st.session_state.conversation.append(f"User: {query.strip()}")
+                
                 response = ""
                 for chunk in chain.stream(query):
                     response += chunk
 
                 st.session_state.conversation.append(f"Assistant: {response}")
-                clear_text()
                 st.experimental_rerun()
 
     else:
