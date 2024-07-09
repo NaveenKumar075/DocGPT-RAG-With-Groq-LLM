@@ -4,11 +4,11 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
 st.set_page_config(
-    page_title="Profile",
+    page_title="Creators",
     page_icon="👤",
 )
 
-st.write("# Welcome to Our Profile! 👋")
+st.write("# Who we're! ✨")
 
 # Define CSS for profile card layout
 st.markdown(
@@ -80,7 +80,7 @@ st.markdown(
             <img src="https://i.postimg.cc/vTprG1Ld/Joe-Profile-Pic.jpg" alt="Jothika R" class="circle-img">
             <div class="profile-info">
                 <p class="profile-name">Jothika R</p>
-                <p>Hey there, I'm Jothika, an aspiring ML Engineer with a passion for diving into the world of AI and ML algorithms to create impactful projects!</p>
+                <p>Hey! I’m Jothika, an aspiring ML Engineer with a passion for AI and ML algorithms. I'm on a mission to innovate and create projects that make an impact!</p>
                 <div class="profile-links">
                     <a href="https://www.linkedin.com/in/jothika-r2031/" target="_blank">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/768px-LinkedIn_logo_initials.png" alt="LinkedIn" title="LinkedIn">
@@ -95,7 +95,7 @@ st.markdown(
             <img src="https://i.postimg.cc/SR8BS9F6/NK-Profile-Pic.jpg" alt="Naveen Kumar S" class="circle-img">
             <div class="profile-info">
                 <p class="profile-name">Naveen Kumar S</p>
-                <p>Hello, I'm Naveen, aspiring ML Engineer with nearly a year experience in data, passionate about AI, Gen AI, and LLM, eager to create impactful projects!</p>
+                <p>Hi! I'm Naveen, an aspiring ML Engineer with nearly a year of experience in data. Passionate about AI, Generative AI, and LLM, I'm eager to develop impactful projects that make a difference.</p>
                 <div class="profile-links">
                     <a href="https://www.linkedin.com/in/naveenkumar075/" target="_blank">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/768px-LinkedIn_logo_initials.png" alt="LinkedIn" title="LinkedIn">
@@ -112,7 +112,7 @@ st.markdown(
 )
 
 # Feedback form
-st.markdown("# Feedback Form")
+st.markdown("# Feedback Form :)")
 name = st.text_input("Name")
 email = st.text_input("Email")
 message = st.text_area("Message")
