@@ -77,7 +77,7 @@ st.markdown(
     """
     <div class="profile-container">
         <div class="profile-card">
-            <img src="https://github.com/NaveenKumar075/DocGPT-RAG-With-Groq-LLM/assets/104119173/23ff7d0b-d420-45c5-96f7-0932f0762f2f" alt="Profile Picture 1" class="circle-img">
+            <img src="https://imgur.com/a/rm3FngG" alt="Profile Picture 1" class="circle-img">
             <div class="profile-info">
                 <p class="profile-name">Jothika R</p>
                 <p>Hey there, I'm Jothika, aspiring ML Engineer, with nearly a year experience in data, passionate about AI, Gen AI, and LLM, eager to create impactful projects!</p>
