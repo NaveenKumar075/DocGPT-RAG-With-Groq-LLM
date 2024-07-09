@@ -77,7 +77,7 @@ st.markdown(
     """
     <div class="profile-container">
         <div class="profile-card">
-            <img src="https://i.postimg.cc/vTprG1Ld/Joe-Profile-Pic.jpg" alt="Jothika R" class="circle-img">
+            <img src="https://i.postimg.cc/vHjJK9DH/Joe-Profile-Pic.jpg" alt="Jothika R" class="circle-img">
             <div class="profile-info">
                 <p class="profile-name">Jothika R</p>
                 <p>Hey! I’m Jothika, an aspiring ML Engineer with a passion for AI and ML algorithms. I'm on a mission to innovate and create projects that make an impact!</p>
