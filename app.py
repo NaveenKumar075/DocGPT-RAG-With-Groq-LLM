@@ -219,7 +219,7 @@ def main():
                     )
         
         # Setup for the conversation
-        query = st.text_input("", key = "query_input", placeholder = "Type your question here...")
+        query = st.text_input("", key = "query_input", placeholder = "You can ask your questions now ...")
         
         if st.button("Send") and query:
                 st.session_state.conversation.append(f"User: {query}")
@@ -232,7 +232,7 @@ def main():
                 st.experimental_rerun()
 
     else:
-        st.write("Please provide both API keys and upload a PDF file to start the conversation.")
+        st.write("Please upload a PDF file to start the conversation!")
     
 
 if __name__ == "__main__":
