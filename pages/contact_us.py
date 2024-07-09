@@ -77,7 +77,7 @@ st.markdown(
     """
     <div class="profile-container">
         <div class="profile-card">
-            <img src="https://i.postimg.cc/Wzsq2Mxr/Flipkart-Laptop-Analysis-Dashboard.jpg" alt="Profile Picture 1" class="circle-img">
+            <img src="https://i.postimg.cc/vTprG1Ld/Joe-Profile-Pic.jpg" alt="Profile Picture 1" class="circle-img">
             <div class="profile-info">
                 <p class="profile-name">Jothika R</p>
                 <p>Hey there, I'm Jothika, aspiring ML Engineer, with nearly a year experience in data, passionate about AI, Gen AI, and LLM, eager to create impactful projects!</p>
@@ -92,7 +92,7 @@ st.markdown(
             </div>
         </div>
         <div class="profile-card">
-            <img src="https://via.placeholder.com/150" alt="Profile Picture 2" class="circle-img">
+            <img src="https://i.postimg.cc/RZvRhtxM/NK-Profile-Pic.jpg" alt="Profile Picture 2" class="circle-img">
             <div class="profile-info">
                 <p class="profile-name">Naveen Kumar S</p>
                 <p>Hey there, I'm Naveen, aspiring ML Engineer, with nearly a year experience in data, passionate about AI, Gen AI, and LLM, eager to create impactful projects!</p>
