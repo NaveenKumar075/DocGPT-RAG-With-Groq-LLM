@@ -220,19 +220,21 @@ def main():
                         unsafe_allow_html=True
                     )
         
+        def update_query():
+            query = st.session_state.query_input
+            if st.button("Send") and query:
+                    st.session_state.conversation.append(f"User: {query}")
+    
+                    response = ""
+                    for chunk in chain.stream(query):
+                        response += chunk
+    
+                    st.session_state.conversation.append(f"Assistant: {response}")
+                    st.session_state.update({"query_input": ""})
+                    st.experimental_rerun()
+
         # Setup for the conversation
-        query = st.text_input("", key = "query_input", placeholder = "You can ask your questions now ...")
-        
-        if st.button("Send") and query:
-                st.session_state.conversation.append(f"User: {query}")
-
-                response = ""
-                for chunk in chain.stream(query):
-                    response += chunk
-
-                st.session_state.conversation.append(f"Assistant: {response}")
-                st.session_state.update({"query_input": ""})
-                st.experimental_rerun()
+        query = st.text_input("", key = "query_input", placeholder = "You can ask your questions now ...", on_change=update_query)
 
     else:
         st.write("Please upload a PDF file to start the conversation!")
