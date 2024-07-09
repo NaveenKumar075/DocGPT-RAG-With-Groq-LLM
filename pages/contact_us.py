@@ -8,7 +8,7 @@ st.set_page_config(
     page_icon="👤",
 )
 
-st.write("# Welcome to My Profile! 👋")
+st.write("# Welcome to Our Profile! 👋")
 
 # Define CSS for profile card layout
 st.markdown(
@@ -143,7 +143,7 @@ if st.button("Submit"):
             server.quit()
 
             st.success("Thank you for your feedback! Your message has been sent :)")
-        
+
         except Exception as e:
             st.error(f"An error occurred: {e}")
     else:
