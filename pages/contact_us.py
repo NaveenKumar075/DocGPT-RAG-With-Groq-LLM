@@ -112,7 +112,7 @@ st.markdown(
 )
 
 # Feedback form
-st.markdown("## Feedback Form")
+st.markdown("# Feedback Form")
 name = st.text_input("Name")
 email = st.text_input("Email")
 message = st.text_area("Message")
