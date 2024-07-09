@@ -77,10 +77,10 @@ st.markdown(
     """
     <div class="profile-container">
         <div class="profile-card">
-            <img src="https://i.postimg.cc/vHjJK9DH/Joe-Profile-Pic.jpg" alt="Jothika R" class="circle-img">
+            <img src="https://i.postimg.cc/vTprG1Ld/Joe-Profile-Pic.jpg" alt="Jothika R" class="circle-img">
             <div class="profile-info">
                 <p class="profile-name">Jothika R</p>
-                <p>Hey! I’m Jothika, an aspiring ML Engineer with a passion for AI and ML algorithms. I'm on a mission to innovate and create projects that make an impact!</p>
+                <p>Hello! I’m Jothika, an ML Engineer with a passion for AI and ML algorithms. I’m on a mission to innovate and develop projects that make a significant impact!</p>
                 <div class="profile-links">
                     <a href="https://www.linkedin.com/in/jothika-r2031/" target="_blank">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/768px-LinkedIn_logo_initials.png" alt="LinkedIn" title="LinkedIn">
