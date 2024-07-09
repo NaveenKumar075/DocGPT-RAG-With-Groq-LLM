@@ -124,6 +124,8 @@ def main():
         # Initialize session state for conversation history
         if "conversation" not in st.session_state:
             st.session_state.conversation = []
+        if "query_input" not in st.session_state:
+            st.session_state.query_input = ""
             
         # Define CSS styles for responsiveness and better design
         st.markdown("""
