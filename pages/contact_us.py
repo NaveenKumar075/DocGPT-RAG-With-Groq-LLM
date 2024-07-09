@@ -80,7 +80,7 @@ st.markdown(
             <img src="https://i.postimg.cc/vTprG1Ld/Joe-Profile-Pic.jpg" alt="Profile Picture 1" class="circle-img">
             <div class="profile-info">
                 <p class="profile-name">Jothika R</p>
-                <p>Hey there, I'm Jothika, aspiring ML Engineer, with nearly a year experience in data, passionate about AI, Gen AI, and LLM, eager to create impactful projects!</p>
+                <p>👋 Hey there, I'm Jothika, an aspiring Machine Learning Engineer with a passion for diving into the world of AI and ML algorithms to create impactful projects!</p>
                 <div class="profile-links">
                     <a href="https://www.linkedin.com/in/jothika-r/" target="_blank">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/768px-LinkedIn_logo_initials.png" alt="LinkedIn" title="LinkedIn">
@@ -95,7 +95,7 @@ st.markdown(
             <img src="https://i.postimg.cc/SR8BS9F6/NK-Profile-Pic.jpg" alt="Profile Picture 2" class="circle-img">
             <div class="profile-info">
                 <p class="profile-name">Naveen Kumar S</p>
-                <p>Hey there, I'm Naveen, aspiring ML Engineer, with nearly a year experience in data, passionate about AI, Gen AI, and LLM, eager to create impactful projects!</p>
+                <p>👋 Hey there, I'm Naveen, aspiring ML Engineer, with nearly a year experience in data, passionate about AI, Gen AI, and LLM, eager to create impactful projects!</p>
                 <div class="profile-links">
                     <a href="https://www.linkedin.com/in/naveenkumar/" target="_blank">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/768px-LinkedIn_logo_initials.png" alt="LinkedIn" title="LinkedIn">
