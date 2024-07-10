@@ -92,7 +92,7 @@ st.markdown(
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/768px-LinkedIn_logo_initials.png" alt="LinkedIn" title="LinkedIn">
                     </a>
                     <a href="https://github.com/jo-2031" target="_blank">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub" title="GitHub">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Github-desktop-logo-symbol-white.svg" alt="GitHub" title="GitHub">
                     </a>
                 </div>
             </div>
@@ -107,7 +107,7 @@ st.markdown(
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/768px-LinkedIn_logo_initials.png" alt="LinkedIn" title="LinkedIn">
                     </a>
                     <a href="https://github.com/NaveenKumar075" target="_blank">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub" title="GitHub">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Github-desktop-logo-symbol-white.svg" alt="GitHub" title="GitHub">
                     </a>
                 </div>
             </div>
