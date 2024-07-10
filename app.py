@@ -238,7 +238,7 @@ def main():
                 st.experimental_rerun()
 
     else:
-        st.write("Please upload a PDF file to start the conversation!")
+        st.write("👈 Please upload a PDF file to start the conversation!")
     
 
 if __name__ == "__main__":
