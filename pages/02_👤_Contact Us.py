@@ -27,7 +27,8 @@ st.markdown(
         border: 1px solid #262730; /* Border color */
         border-radius: 10px;
         padding: 20px;
-        width: 45%;
+        width: 100%;
+        max-width: 400px;
         margin: 10px;
         transition: box-shadow 0.3s ease;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -66,6 +67,11 @@ st.markdown(
         width: 25px;
         height: 25px;
         margin-right: 5px;
+    }
+    @media (min-width: 768px) {
+        .profile-card {
+            width: 45%;
+        }
     }
     </style>
     """, 
@@ -146,5 +152,6 @@ if st.button("Submit"):
 
         except Exception as e:
             st.error(f"An error occurred: {e}")
+    
     else:
         st.error("Please fill out all fields in the feedback form.")
