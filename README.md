@@ -1,6 +1,6 @@
 # DocGPT - RAG With Groq LLM
 
-Overview:
+Overview: 
 
 ### DocGPT WorkFlow
 
