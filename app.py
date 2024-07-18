@@ -1,17 +1,13 @@
-__import__('pysqlite3')
-import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
-
 import os
 import re
-import sqlite3
 import pdfplumber
 import streamlit as st
 from pathlib import Path
 from dotenv import load_dotenv
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.schema import Document
-from langchain_community.vectorstores import Chroma
+# from langchain_community.vectorstores import Chroma
+from langchain_community.vectorstores import FAISS
 from langchain_community.embeddings import HuggingFaceInferenceAPIEmbeddings
 from langchain.retrievers import BM25Retriever, EnsembleRetriever
 from langchain_groq import ChatGroq
@@ -25,9 +21,6 @@ load_dotenv()
 # Get API key's from the environmental variables
 hugging_face_token = os.getenv('HF_TOKEN') # If we get from our .env file
 groq_api_key = os.getenv('GROQ_API_KEY') # If we get from our .env file
-
-# To store the vectors in a directory 
-LOCAL_VECTOR_STORE_DIR = Path(__file__).resolve().parent.joinpath('db', 'vector_store')
 
 # Pdf-to-text extraction process
 def pdf_text_extraction(pdf_path):
@@ -59,7 +52,7 @@ def main():
     st.caption("🌟 Retrieval-Augmented Generation (RAG) With LLM Model 🌟")
 
     # Sidebar for API keys and file upload
-    st.sidebar.title("Credentials:")
+    # st.sidebar.title("Credentials:")
 
     # Input fields for API keys: HF Token & Groq API
     # hugging_face_token = st.sidebar.text_input("Enter your Hugging Face Token", type="password")
@@ -88,8 +81,9 @@ def main():
             api_key=hugging_face_token, model_name="WhereIsAI/UAE-Large-V1"
         )
         
-        # Words to vectorization and storing them in a chromadb (Vector Database)
-        vectorstore = Chroma.from_documents(splitted_data, embeddings, persist_directory=LOCAL_VECTOR_STORE_DIR.as_posix())
+        # Words to vectorization and storing them in a FAISS (Vector Database)
+        # vectorstore = Chroma.from_documents(documents=splitted_data, embedding=embeddings, persist_directory="chroma_store") # chromadb
+        vectorstore = FAISS.from_documents(splitted_data, embeddings)
         vector_retriever = vectorstore.as_retriever(search_kwargs={"k":2})
         
         # Integrating vector_retriever and keyword_retriever (Hybrid Search)
@@ -130,6 +124,8 @@ def main():
         # Initialize session state for conversation history
         if "conversation" not in st.session_state:
             st.session_state.conversation = []
+        # if "query_input" not in st.session_state:
+        #     st.session_state.query_input = ""
             
         # Define CSS styles for responsiveness and better design
         st.markdown("""
@@ -196,6 +192,10 @@ def main():
             </style>
             """, unsafe_allow_html=True)
 
+        # query_input cleaner
+        # def clear_text():
+        #     st.session_state.query_input = ""
+
         # Chat container
         chat_placeholder = st.container()
         with chat_placeholder:
@@ -225,11 +225,11 @@ def main():
                     )
         
         # Setup for the conversation
-        query = st.text_input("", key = "query_input", placeholder = "Type your question here...")
+        query = st.text_input("", key = "query_input", placeholder = "You can ask your questions now ...")
         
-        if st.button("Send") and query:
-                st.session_state.conversation.append(f"User: {query}")
-
+        if st.button("Send") and query.strip():
+                st.session_state.conversation.append(f"User: {query.strip()}")
+                
                 response = ""
                 for chunk in chain.stream(query):
                     response += chunk
@@ -238,7 +238,7 @@ def main():
                 st.experimental_rerun()
 
     else:
-        st.write("Please provide both API keys and upload a PDF file to start the conversation.")
+        st.write("👈 Please upload a PDF file to start the conversation!")
     
 
 if __name__ == "__main__":
