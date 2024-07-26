@@ -235,7 +235,7 @@ def main():
                     response += chunk
 
                 st.session_state.conversation.append(f"Assistant: {response}")
-                st.experimental_rerun()
+                st.rerun() # st.experimental_rerun() - Deprecation Error: For the latest version of Streamlit (1.37.0)
 
     else:
         st.write("👈 Please upload a PDF file to start the conversation!")
